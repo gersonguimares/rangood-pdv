@@ -39,6 +39,7 @@ public class AuthorizationServerConfig extends ResourceServerConfigurerAdapter {
 
                 //PUBLIC SPECIFIC OPERATIONS
                 .antMatchers("/api-customer/v1/customer").permitAll()
+                .antMatchers("/api-user/v1/user").permitAll()
 
                 //OPERATOR SPECIFIC OPERATIONS
                 .antMatchers(HttpMethod.GET, "/api-product/v1/product/**").hasRole("OPERATOR")

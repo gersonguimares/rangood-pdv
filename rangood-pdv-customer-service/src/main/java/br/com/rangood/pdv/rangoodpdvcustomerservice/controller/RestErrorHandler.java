@@ -35,8 +35,12 @@ public class RestErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> unhandledException(Exception ex) {
-        System.err.println(ex);
-        logger.warn(Exception.class.getCanonicalName(), ex.getMessage());
+
+        if(ex instanceof IllegalArgumentException) {
+            return ResponseEntity.badRequest().body(
+                    new RestErrorResponseModel(INVALID_FORMAT_PATH_VARIABLE, "Invalid format for path variables", null)
+            );
+        }
 
         return ResponseEntity.internalServerError().body(
                 new RestErrorResponseModel("SEVERAL_ERROR", "An irreversible error has occurred. The system administrator has been notified. We regret what happened :(", null)

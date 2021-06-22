@@ -166,6 +166,26 @@ public class RestErrorHandler extends ResponseEntityExceptionHandler {
             );
         }
 
+        public static ResponseEntity badRequest(String[] ...keyValuePair) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    new RestErrorResponseModel(
+                            "REQUEST_VALIDATION_ERROR",
+                            "Values entered are invalid",
+                            RestErrorResponseModel.buildDetailsErrorList(keyValuePair)
+                    )
+            );
+        }
+
+        public static ResponseEntity unavailableService() {
+            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(
+                    new RestErrorResponseModel(
+                            "SERVICE_UNAVAILABLE",
+                            "Service temporarily unavailable",
+                            null
+                    )
+            );
+        }
+
     }
 
 }

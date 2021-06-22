@@ -25,12 +25,12 @@ public class GetProduct {
 
     @GetMapping
     public ResponseEntity getAll(){
-        final List<Product> productClassList = productService.getlAll();
-        if (productClassList == null) {
+        final List<Product> productList = productService.getlAll();
+        if (productList == null) {
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(productClassList);
+        return ResponseEntity.ok(productList);
     }
 
     @GetMapping("/{id}")

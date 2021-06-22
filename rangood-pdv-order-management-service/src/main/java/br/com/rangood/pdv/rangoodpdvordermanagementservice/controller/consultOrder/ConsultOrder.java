@@ -48,6 +48,34 @@ public class ConsultOrder {
 
     }
 
+    @PatchMapping ("/{orderId}/status/{status}")
+    public ResponseEntity setOrderStatus(@PathVariable UUID orderId, @PathVariable String status){
+
+        String resolvedEventStatus = null;
+        try {
+           final OrderEvent.Type ot =  OrderEvent.Type.valueOf(status);
+           resolvedEventStatus = ot.toString();
+        } catch (IllegalArgumentException e) {
+            return RestErrorHandler.ResponseEntityErrorBuilder
+                    .badRequest(new String[]{"status", "Invalid status"});
+        }
+
+        Order order = orderService.findById(orderId);
+        if (order == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        OrderEvent event = new OrderEvent(resolvedEventStatus,"", LocalDateTime.now());
+        order.setStatus(resolvedEventStatus);
+        order.getEvents().add(event);
+
+        order = orderService.addOrder(order);
+
+        return ResponseEntity.ok(order);
+
+
+    }
+
     @GetMapping("/{orderId}")
     public ResponseEntity order(@PathVariable UUID orderId){
 

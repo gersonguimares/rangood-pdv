@@ -34,4 +34,14 @@ public class GetCustomer {
         return ResponseEntity.ok(customer);
     }
 
+    @GetMapping("/Forservice")
+    public ResponseEntity getByUUid(@RequestParam String uuid) {
+
+        final Customer customer = customerService.getCustomerByUuid(UUID.fromString(uuid));
+        if(customer == null)
+            return ResponseEntity.notFound().build();
+
+        return ResponseEntity.ok(customer);
+    }
+
 }

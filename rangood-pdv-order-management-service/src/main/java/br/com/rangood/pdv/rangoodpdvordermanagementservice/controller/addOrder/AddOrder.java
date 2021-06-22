@@ -2,11 +2,14 @@ package br.com.rangood.pdv.rangoodpdvordermanagementservice.controller.addOrder;
 
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.controller.RestErrorHandler;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.controller.ValidationErrorHandler;
+import br.com.rangood.pdv.rangoodpdvordermanagementservice.expections.NotFoundEntityFeignClientException;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.expections.UnavailableServiceFeignClientException;
+import br.com.rangood.pdv.rangoodpdvordermanagementservice.feignclient.customerservice.Customer;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.feignclient.productservice.Product;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.model.Order;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.model.OrderEvent;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.model.OrderItem;
+import br.com.rangood.pdv.rangoodpdvordermanagementservice.service.CustomerService;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.service.OrderService;
 import br.com.rangood.pdv.rangoodpdvordermanagementservice.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +35,13 @@ public class AddOrder {
 
     private final OrderService orderService;
     private final ProductService productService;
+    private final CustomerService customerService;
+
     @Autowired
-    public AddOrder(OrderService orderService, ProductService productService) {
+    public AddOrder(OrderService orderService, ProductService productService, CustomerService customerService) {
         this.orderService = orderService;
         this.productService = productService;
+        this.customerService = customerService;
     }
 
     @PostMapping
@@ -44,6 +50,16 @@ public class AddOrder {
             return ResponseEntity
                     .badRequest()
                     .body(ValidationErrorHandler.fromBindingErrors(bindingResult));
+        }
+
+        Customer customer = null;
+        try {
+             customer = customerService.findById(addOrderRequestModel.getCustomerId());
+        } catch (UnavailableServiceFeignClientException e) {
+            return RestErrorHandler.ResponseEntityErrorBuilder.unavailableService();
+        } catch (NotFoundEntityFeignClientException e) {
+            return RestErrorHandler.ResponseEntityErrorBuilder
+                    .badRequest(new String[]{"customerId", "Customer not found"});
         }
 
         if (addOrderRequestModel.getItens().isEmpty())
@@ -80,7 +96,7 @@ public class AddOrder {
 
         //Register the Order
         final LocalDateTime localDateTime = LocalDateTime.now();
-        Order order = new Order(String.valueOf((new Random()).nextLong()), localDateTime);
+        Order order = new Order(generateOrderNumber(), localDateTime);
         order.setRequesterId(addOrderRequestModel.getCustomerId());
 
         OrderEvent orderEvent = new OrderEvent(OrderEvent.Type.REQUESTED.toString(),"",localDateTime);
@@ -115,6 +131,17 @@ public class AddOrder {
             }
         }
         return null;
+
+    }
+
+    private String generateOrderNumber() {
+
+        int number = (new Random()).nextInt();
+        if(number < 0)
+            number = number * -1;
+
+        final LocalDateTime dt = LocalDateTime.now();
+        return dt.getYear()+""+dt.getMonth()+""+dt.getDayOfMonth() + number;
 
     }
 }

@@ -17,6 +17,6 @@ public interface ProductServiceFeignClient {
     ResponseEntity<Product> findById(@PathVariable UUID id);
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAll();
+    ResponseEntity<List<Product>> getAll();
 
 }

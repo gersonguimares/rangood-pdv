@@ -47,7 +47,6 @@ Este projeto é modular, portanto você deve executar cada módulo separadamente
 
 > Note: Em ambientes Windows, utilize o PowerShell com privilégios de administrador
 
-Install the dependencies and devDependencies and start the server.
 
 ```sh
 cd <diretorio-modulo>

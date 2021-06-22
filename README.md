@@ -43,9 +43,9 @@ Este projeto é modular, portanto você deve executar cada módulo separadamente
 
 2. Altere a configuração da sua instancia local PostgreSQL nas propriedades de cada projeto no arquivo application.properties '<diretorio-módulo>/src/main/resources'
 
-3. Execute do script de db.sql para criar as bases de dados;
+3. Execute o script SQL db.sql para criar as bases de dados;
 
-4. Para executar cada serviço, navegue via terminal até o respectivo diretório, faça o build com o mavem.
+4. Para executar cada serviço, navegue via terminal até o respectivo diretório, faça o build com o maven.
 
 > Note: Em ambientes Windows, utilize o PowerShell com privilégios de administrador
 
@@ -71,9 +71,9 @@ O acesso aos recursos da API está progedito com OAuth/JWT. Para utilizar os ser
 
 > A utilização desta funcionalidade pirata deve-se apenas por convêniencia ao inserir usuarios para teste dos contextos de autorização ADMIN e OPERATOR.
 
-Para permitir a implementação de consumo da API por multi-clientes, cada autenticação deve informar appId e appSecret (ambos, 123456)
+Para permitir a implementação de consumo da API por multi-clientes, cada autenticação deve informar appId e appSecret (ambos, com o valor '123456')
 
-> Por convêniencia estas credenciais foram definidas em high-code, mas o ideal é que cada client API tenha credenciais diferentes, para viabilizar mais uma cada de segurança à solução
+> Por conveniência estas credenciais foram definidas em high-code, mas o ideal é que cada client API tenha credenciais diferentes, para viabilizar mais uma cada de segurança à solução
 
 
 

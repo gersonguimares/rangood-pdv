@@ -43,7 +43,7 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
                 .secret(bCryptPasswordEncoder.encode("123456"))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password")
-                .accessTokenValiditySeconds(600);
+                .accessTokenValiditySeconds(86400);
 
     }
 

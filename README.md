@@ -43,7 +43,9 @@ Este projeto é modular, portanto você deve executar cada módulo separadamente
 
 2. Altere a configuração da sua instancia local PostgreSQL nas propriedades de cada projeto no arquivo application.properties '<diretorio-módulo>/src/main/resources'
 
-2. Para executar cada serviço, navegue via terminal até o respectivo diretório, faça o build com o mavem.
+3. Execute do script de db.sql para criar as bases de dados;
+
+4. Para executar cada serviço, navegue via terminal até o respectivo diretório, faça o build com o mavem.
 
 > Note: Em ambientes Windows, utilize o PowerShell com privilégios de administrador
 
@@ -53,13 +55,26 @@ cd <diretorio-modulo>
 mvnw clean package
 ```
 
-3. Em seguida, execute o aplicativo
+5. Em seguida, execute os aplicativos e aguarde um instante para a estabilização dos serviços no servidor servicediscovery.
 
 > Para estabilização mais rápida no servidor servicediscorevy, execute os módulos preferenciamente nesta ordem: shareconfig >> servicediscovery >> apigateway >> <demais módulos>
 
 ```sh
 java -jar ./target/rangood-pdv-<nome-servico>-0.0.1-SNAPSHOT.jar
 ```
+
+5. Utilize a Collection do Postman para executar as requições. 
+
+## Testando
+
+O acesso aos recursos da API está progedito com OAuth/JWT. Para utilizar os serviços é necessário autenticar utilizando a rota **/api-oauth/v1/oauth/token**. Utilize as rotas disponiveis para o serviço api-user, que implementam uma funcionalidade 'pirata' para inserir usuarios. Podem ser inseridos usuarios com as roles ROLE_ADMIN ou ROLE_OPERATOR. 
+
+> A utilização desta funcionalidade pirata deve-se apenas por convêniencia ao inserir usuarios para teste dos contextos de autorização ADMIN e OPERATOR.
+
+Para permitir a implementação de consumo da API por multi-clientes, cada autenticação deve informar appId e appSecret (ambos, 123456)
+
+> Por convêniencia estas credenciais foram definidas em high-code, mas o ideal é que cada client API tenha credenciais diferentes, para viabilizar mais uma cada de segurança à solução
+
 
 
 ## License

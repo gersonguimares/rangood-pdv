@@ -1,0 +1,827 @@
+{
+	"info": {
+		"_postman_id": "59fe8f4e-f4c4-490a-a02d-a949a57a48ae",
+		"name": "Rangood PDV API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "shareconfig-server",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{shareconfigserver}}/rangood-pdv-apigateway/default",
+							"host": [
+								"{{shareconfigserver}}"
+							],
+							"path": [
+								"rangood-pdv-apigateway",
+								"default"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-order",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Add Order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzODc1NDQsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI1NTA5ODI0Ny1mYzJhLTQ3YzAtODFiNy1mNjIwNDc3NzA4YjQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5T8iGivLlDNQJb7Kge9WRyxwX0RDIEpQf_HUVgFEGhQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerId\": \"5e93ecca-352a-4a33-9d81-b5f33ca2a477\",\n    \"itens\" : [\n        { \n            \"productId\": \"2771c2ec-15d3-4dd8-b469-82cca6a010db\",\n            \"quantity\": 6\n        }\n    ]\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigatewayserver}}/api-order/v1/order",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-order",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzMzg2NTAsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiJmYjU5YTkwZS0zY2NkLTQzYTMtYTcxZC0zNTJiNTE1Y2E4ZTkiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.ImtHLUP1FlWNVXhnSc8-l7364Eb3Av8xi4BhIQlWDRc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigatewayserver}}/api-order/v1/order/12b04de0-a1a2-48f6-af69-ef8105954b44",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-order",
+										"v1",
+										"order",
+										"12b04de0-a1a2-48f6-af69-ef8105954b44"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a order status",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzNDIyMzgsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiIzYTAxODM2NC1mNGIwLTQwY2QtYmZjNC1hN2MyMGNmOGY4NmQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5bAtX0zAVF2S3aXHpODqjvKQfgAZcLyAUuaLqW8BfWA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigatewayserver}}/api-order/v1/order/806d063f-99fe-4a9c-a8fd-6776fcc2c84b/status",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-order",
+										"v1",
+										"order",
+										"806d063f-99fe-4a9c-a8fd-6776fcc2c84b",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set a order status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzMzgwMzYsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiJkZmI0NzE1OS1iNDMxLTRjZDMtOWQ0MS01YjUxOThjYTZkMmUiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.ERQJpGEJOs23vTqZqYhEOHL0HthRQWpOHMj8B2ZmLic",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{apigatewayserver}}/api-order/v1/order/12b04de0-a1a2-48f6-af69-ef8105954b44/status/CANCELED",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-order",
+										"v1",
+										"order",
+										"12b04de0-a1a2-48f6-af69-ef8105954b44",
+										"status",
+										"CANCELED"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel a order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzNDIyMzgsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiIzYTAxODM2NC1mNGIwLTQwY2QtYmZjNC1hN2MyMGNmOGY4NmQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5bAtX0zAVF2S3aXHpODqjvKQfgAZcLyAUuaLqW8BfWA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apigatewayserver}}/api-order/v1/order/806d063f-99fe-4a9c-a8fd-6776fcc2c84b/cancel",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-order",
+										"v1",
+										"order",
+										"806d063f-99fe-4a9c-a8fd-6776fcc2c84b",
+										"cancel"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "api-customer",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Add Customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzODc1NDQsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI1NTA5ODI0Ny1mYzJhLTQ3YzAtODFiNy1mNjIwNDc3NzA4YjQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5T8iGivLlDNQJb7Kge9WRyxwX0RDIEpQf_HUVgFEGhQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Gerson Guimaraẽs\",\n    \"birthDate\" : \"1991-09-18\",\n    \"phoneNumber\": \"888888888888\",\n    \"email\": \"gerson.mfg2@gmail.com\",\n    \"password\": \"123456\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigatewayserver}}/api-customer/v1/customer",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-customer",
+										"v1",
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzODc1NDQsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI1NTA5ODI0Ny1mYzJhLTQ3YzAtODFiNy1mNjIwNDc3NzA4YjQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5T8iGivLlDNQJb7Kge9WRyxwX0RDIEpQf_HUVgFEGhQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apigatewayserver}}/api-customer/v1/customer",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-customer",
+										"v1",
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzNDA4OTAsInVzZXJfbmFtZSI6ImdlcnNvbmphbWVzQGxpdmUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiJhOWViYTc3MC0zZTJkLTRjNmMtYmZmOC02M2ZjZjgwZGViY2QiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.ETwNDG0YSTpKPs3N7qDYIS0bR28eulBJrRwIkdeyEFs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apigatewayserver}}/api-customer/v1/customer/gerson.mfg@gmail.com",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-customer",
+										"v1",
+										"customer",
+										"gerson.mfg@gmail.com"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "api-product",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Product",
+							"item": [
+								{
+									"name": "Add a product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzMzI5NTksInVzZXJfbmFtZSI6ImdlcnNvbmphbWVzQGxpdmUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiI3NmIyYmU3NS1kMmIwLTQ3ZTEtODM4Ny05NGVmN2ExNzllMmYiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.rpwQ3_c3Y0l5yrxcQ2zMTtem25HHLBcPNFNy0_W-A64",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productClassId\": \"6a1faf87-be98-4963-896a-74dac623026a\",\n    \"name\": \"Pizza P - Frango\",\n    \"price\": 2.25\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzODc1NDQsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI1NTA5ODI0Ny1mYzJhLTQ3YzAtODFiNy1mNjIwNDc3NzA4YjQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5T8iGivLlDNQJb7Kge9WRyxwX0RDIEpQf_HUVgFEGhQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/6baa7da7-907e-453d-b84d-54e4ba8baef6",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"6baa7da7-907e-453d-b84d-54e4ba8baef6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all products",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzODc1NDQsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI1NTA5ODI0Ny1mYzJhLTQ3YzAtODFiNy1mNjIwNDc3NzA4YjQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5T8iGivLlDNQJb7Kge9WRyxwX0RDIEpQf_HUVgFEGhQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a product",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/fa64705a-ecf4-4eac-a63a-dd68f2cec454",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"fa64705a-ecf4-4eac-a63a-dd68f2cec454"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Partially updates a product",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"price\": 2.8\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/2771c2ec-15d3-4dd8-b469-82cca6a010db",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"2771c2ec-15d3-4dd8-b469-82cca6a010db"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update a product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzODc1NDQsInVzZXJfbmFtZSI6ImdlcnNvbi5tZmdAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI1NTA5ODI0Ny1mYzJhLTQ3YzAtODFiNy1mNjIwNDc3NzA4YjQiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.5T8iGivLlDNQJb7Kge9WRyxwX0RDIEpQf_HUVgFEGhQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productClassId\" : \"2771c2ec-15d3-4dd8-b469-82cca6a010db\",\n    \"name\": \"Cachorro Quente\",\n    \"price\": 1.2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/2771c2ec-15d3-4dd8-b469-82cca6a010db",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"2771c2ec-15d3-4dd8-b469-82cca6a010db"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Product Class",
+							"item": [
+								{
+									"name": "Add a product class",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjQzMzQ5MjYsInVzZXJfbmFtZSI6ImdlcnNvbmphbWVzQGxpdmUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiI1YTk3ZGY5OS1hNGMwLTRlMTgtYWJjZi01NTUxNjhjODczYTYiLCJjbGllbnRfaWQiOiIxMjM0NTYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.AZlX7FMYFQJ6iOUpPB1IERKsbY_Y9-WBy_OgluU1FX8",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"DOCES\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/class",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"class"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get a product class",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/class/90356bfb-245a-413e-a7f4-554cc17d283e",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"class",
+												"90356bfb-245a-413e-a7f4-554cc17d283e"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all product class",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/class",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"class"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a product class",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/class/a4f0c5a9-ff8b-4dd7-b31b-ad252ba9d556",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"class",
+												"a4f0c5a9-ff8b-4dd7-b31b-ad252ba9d556"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Partially updates a product class Copy 2",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"SALGADINHOS\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/class/42a431a5-0acd-4786-8393-54c22b562f95",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"class",
+												"42a431a5-0acd-4786-8393-54c22b562f95"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update a product class",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"SALGADOS\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apigatewayserver}}/api-product/v1/product/class/42a431a5-0acd-4786-8393-54c22b562f95",
+											"host": [
+												"{{apigatewayserver}}"
+											],
+											"path": [
+												"api-product",
+												"v1",
+												"product",
+												"class",
+												"42a431a5-0acd-4786-8393-54c22b562f95"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "api-user",
+			"item": [
+				{
+					"name": "Add a customer user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"gerson.mfg@gmail.com\",\n    \"name\": \"Gerson Guimaraes\",\n    \"password\": \"1234\",\n    \"role\": \"CLIENT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apigatewayserver}}/api-user/v1/user",
+							"host": [
+								"{{apigatewayserver}}"
+							],
+							"path": [
+								"api-user",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a manager user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"gersonjames@live.com\",\n    \"name\": \"Gerson Guimaraes\",\n    \"password\": \"1234\",\n    \"role\": \"ROLE_ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apigatewayserver}}/api-user/v1/user",
+							"host": [
+								"{{apigatewayserver}}"
+							],
+							"path": [
+								"api-user",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-oauth",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Sign In",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "123456",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "gerson.mfg@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apigatewayserver}}/api-oauth/v1/oauth/token",
+									"host": [
+										"{{apigatewayserver}}"
+									],
+									"path": [
+										"api-oauth",
+										"v1",
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

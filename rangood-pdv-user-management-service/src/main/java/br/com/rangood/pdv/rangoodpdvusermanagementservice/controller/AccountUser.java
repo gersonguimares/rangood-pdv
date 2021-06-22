@@ -28,7 +28,7 @@ public class AccountUser {
     @PostMapping
     public ResponseEntity registerUser(@RequestBody AddUserResquestModel addUserResquestModel) {
 
-        Role role = roleService.getByRoleName("OPERATOR");
+        Role role = roleService.add(addUserResquestModel.getRole());
         String password = bCryptPasswordEncoder.encode(addUserResquestModel.getPassword());
 
         User user = new User(
@@ -40,6 +40,19 @@ public class AccountUser {
         userService.add(user);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
+
+//        Role role = roleService.getByRoleName("OPERATOR");
+//        String password = bCryptPasswordEncoder.encode(addUserResquestModel.getPassword());
+//
+//        User user = new User(
+//                addUserResquestModel.getName(),
+//                addUserResquestModel.getUsername(),
+//                password
+//        );
+//        user.addRole(role);
+//        userService.add(user);
+//
+//        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     public ResponseEntity registerInScriptUser(@RequestBody AddUserResquestModel addUserResquestModel) {
